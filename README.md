@@ -1,6 +1,11 @@
 # BE_Endo
 title: Deep learning models incorporating endogenous factors beyond DNA sequences improve the prediction accuracy of base editing outcomes
 
+##download 
+git clone https://github.com/zhaodalv/BE_Endo.git (No further action is required!!)
+Or download zip file at https://github.com/zhaodalv/BE_Endo
+Once downlaod the zip file the "-master" suffix need to removed by this command: "mv BE_Endo-master BE_Endo", which is a necessary step to run the progam!!!
+
 ####set up running envirnoment within conda version 4.14.0
 1) create running ENV (BE_Endo)
 conda create -n BE_Endo python=3.9.4
