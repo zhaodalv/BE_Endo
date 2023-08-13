@@ -88,3 +88,13 @@ One downloaded, extracted from zip file and put "endo_factors.bed" in the direct
 3)
 No such file or directory:XXXXX/BD_intersect.sh 
 Change the interpreter of BD_intersect.sh to your own bash interpreter. Such as in MAC, "#!/bin/env bash" is a bad interpreter.Changed to "#!/bin/bash"
+
+4)
+Traceback (most recent call last):
+  File "/home/wull01/BE_Endo/Main/Prediction_main.py", line 6, in <module>
+    import File_input_main  as PIP_F
+  File "/home/wull01/BE_Endo/Main/File_input_main.py", line 7, in <module>
+    import BE_endo_Pack.Preprocess.Preprocessing as Prepro
+ModuleNotFoundError: No module named 'BE_endo_Pack'
+
+export PYTHONPATH=$PYTHONPATH:/home/wull01/BE_Endo

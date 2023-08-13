@@ -64,7 +64,7 @@ def pip_endo(mpath,seq_40s,bio,labels,editor):
     bio_train_reshape=transform_all(bio)
     #else:
     #     bio_train_reshape=transform_single(bio)
-    print(bio_train_reshape.shape)
+    #print(bio_train_reshape.shape)
     Model=Model_Application(mpath,[X,bio_train_reshape])
     Model.load_model()
     Model.predicting()

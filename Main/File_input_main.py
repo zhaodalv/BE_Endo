@@ -36,7 +36,7 @@ def pip_file(file_in,editor,sgRNA_bed_path,workdir,out_file,prop_cut=0.01):
    #model_H3K36me3="../model_data_endo/{}_eff/{}_H3K36me3_endo.h5".format(Editor,Editor)
    #model_methylation="../model_data_endo/{}_eff/{}_methylation_endo.h5".format(Editor,Editor)
    #model_all="../model_data_endo/{}_eff/{}_all_endo.h5".format(Editor,Editor)
-   pre_path="{}/BE_Endo_Smart/model_data_endo/{}_pro/{}_proportion_pre.npy".format(workdir,Editor,Editor)
+   pre_path="{}/BE_Endo/model_data_endo/{}_pro/{}_proportion_pre.npy".format(workdir,Editor,Editor)
 
 
 
@@ -53,12 +53,12 @@ def pip_file(file_in,editor,sgRNA_bed_path,workdir,out_file,prop_cut=0.01):
    out_file_path=Input_process_obj.write_out(position_df,sgRNA_bed_path) ###write out sgRNA.bed
    tmpname=os.path.basename(out_file_path)
    Model_prepare_obj=Prepro.Endo_Prepare(Editor,out_file_path) ##create Model_prepare_obj
-   Model_prepare_obj.intersecting("{}/BE_Endo_Smart/Main/BD_intersect.sh".format(workdir),workdir,tmpname)
+   Model_prepare_obj.intersecting("{}/BE_Endo/Main/BD_intersect.sh".format(workdir),workdir,tmpname)
    input_df=Model_prepare_obj.Prepare_inputs()
-   Model_prepare_obj.read_ins("{}/BE_Endo_Smart/Main/Intersection_temp/{}".format(workdir,tmpname))
+   Model_prepare_obj.read_ins("{}/BE_Endo/Main/Intersection_temp/{}".format(workdir,tmpname))
    single_factor,merge_result=Model_prepare_obj.factor_process(input_df)
-   model_path="{}/BE_Endo_Smart/model_data_endo/{}_eff/{}_{}_endo.h5".format(workdir,Editor,Editor,single_factor)
-   model_all_path="{}/BE_Endo_Smart/model_data_endo/{}_eff/{}_all_endo.h5".format(workdir,Editor,Editor)
+   model_path="{}/BE_Endo/model_data_endo/{}_eff/{}_{}_endo.h5".format(workdir,Editor,Editor,single_factor)
+   model_all_path="{}/BE_Endo/model_data_endo/{}_eff/{}_all_endo.h5".format(workdir,Editor,Editor)
    ###prediction
    Seq_obj=Effiency.Sequence_prepare(seq_40s)
    X_array=Seq_obj.one_hot_encoding()
