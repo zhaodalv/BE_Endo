@@ -1,11 +1,11 @@
-# BE_Endo_Smart
+# BE_Endo
 title: Deep learning models incorporating endogenous factors beyond DNA sequences improve the prediction accuracy of base editing outcomes
 
 ####set up running envirnoment within conda version 4.14.0
-1) create running ENV (BE_Endo_Smart)
-conda create -n BE_Endo_Smart python=3.9.4
-2) activating ENV (BE_Endo_Smart)
-conda activate BE_Endo_Smart
+1) create running ENV (BE_Endo)
+conda create -n BE_Endo python=3.9.4
+2) activating ENV (BE_Endo)
+conda activate BE_Endo
 3)install package dependency
 conda install -c conda-forge joblib=0.17.0
 conda install -c conda-forge numpy=1.20.2
@@ -17,8 +17,8 @@ conda install tensorflow=2.4.1 // conda install -c conda-forge tensorflow=2.4.1
 conda install -c bioconda bedtools=2.29.1
 conda install -c anaconda scikit-learn=0.24.2
 4) add package path to environment
-export PYTHONPATH=$PYTHONPATH:{PATH of BE_Endo_Smart Package}
-example: export PYTHONPATH=$PYTHONPATH:~/BE_Endo_Smart
+export PYTHONPATH=$PYTHONPATH:{PATH of BE_Endo Package}
+example: export PYTHONPATH=$PYTHONPATH:~/BE_Endo
 
 ####Usage informations
 python Prediction_main.py -h
@@ -30,7 +30,7 @@ optional arguments:
   -T EDITOR, --Editor EDITOR
                         BASE editor(ABE/CBE/abe/cbe)
   -P PACKAGE, --Package PACKAGE
-                        Package path of BE_Endo_Smart
+                        Package path of BE_Endo
   -B BEDOUT, --BEDOUT BEDOUT
                         Output BED file for intersection
   -O OUTPREFIX, --Outprefix OUTPREFIX
@@ -39,7 +39,7 @@ optional arguments:
 example: 
 python Prediction_main.py -T ABE -P /home/wull01 -B $PWD/test1.bed -O $PWD/test/test1_ test_input
 python Prediction_main.py -T CBE -P /home/wull01 -B $PWD/test1.bed -O $PWD/test/test1_ test_input
-Notice: here Package "BE_Endo_Smart" in the director "/home/wull01"
+Notice: here Package "BE_Endo" in the director "/home/wull01"
 
 Input file detailed format 
 TCCAGGCCAGGCAGTCAAGGAAGAAGCCCTGGGCTCCCAG        chr14:24431547-24431567
@@ -60,11 +60,11 @@ chmod a+x BD_intersect.sh
 
 2)
 Traceback (most recent call last):
-  File "XXX/BE_Endo_Smart/Main/Prediction_main.py", line 19, in <module>
+  File "XXX/BE_Endo/Main/Prediction_main.py", line 19, in <module>
     PIP_F.pip_file(args.Input_file,args.Editor,args.BEDOUT,args.Package,args.Outprefix)
-  File "XXX/BE_Endo_Smart/Main/File_input_main.py", line 58, in pip_file
-    Model_prepare_obj.read_ins("{}/BE_Endo_Smart/Main/Intersection_temp/{}".format(workdir,tmpname))
-  File "/home/wull01/ACBE_endomodel_reanalysis/BE_Endo_Smart/BE_endo_Pack/Preprocess/Preprocessing.py", line 94, in read_ins
+  File "XXX/BE_Endo/Main/File_input_main.py", line 58, in pip_file
+    Model_prepare_obj.read_ins("{}/BE_Endo/Main/Intersection_temp/{}".format(workdir,tmpname))
+  File "/home/wull01/ACBE_endomodel_reanalysis/BE_Endo/BE_endo_Pack/Preprocess/Preprocessing.py", line 94, in read_ins
     result=pd.read_csv(intersected_path,sep="\t",header=None)
   File "/home/wull01/anaconda3/envs/py3.8/lib/python3.9/site-packages/pandas/io/parsers.py", line 610, in read_csv
     return _read(filepath_or_buffer, kwds)
