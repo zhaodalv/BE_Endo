@@ -30,6 +30,7 @@ python Prediction_main.py -h
 usage: Prediction_main.py [-h] -T EDITOR -P PACKAGE -B BEDOUT -O OUTPREFIX Input_file
 positional arguments:
   Input_file            40bp(10bp upstream + 20bp sgRNA+3bp PAM + 7bp downstream)(Tab seperate)chr:start-end
+
 optional arguments:
   -h, --help            show this help message and exit
   -T EDITOR, --Editor EDITOR
@@ -40,11 +41,19 @@ optional arguments:
                         Output BED file for intersection
   -O OUTPREFIX, --Outprefix OUTPREFIX
                         Outfile prefix to store effiency and propotion result
+  -E ENDOGENOUS, --Endogenous ENDOGENOUS
+                        Choose one of endogenous factor name:expression methylation Dnase H3K27ac H3K4me3 PII H3K4me1 CTCF H3K36me3'
 
-example: 
+Main code "Prediction_main.py" offers two Prediction Mode:
+First: Default Prediction Mode. This Mode includes prediction using three models: Seq model, All factor model and best single factor model. The best single factor model is selected based on the endogenous factor percentages.
+example:
 python Prediction_main.py -T ABE -P /home/wull01 -B $PWD/test1.bed -O $PWD/test/test1_ test_input
-python Prediction_main.py -T CBE -P /home/wull01 -B $PWD/test1.bed -O $PWD/test/test1_ test_input
-Notice: here Package "BE_Endo" in the director "/home/wull01"
+
+Second: Customizing Prediction Mode. This Mode includes prediction using user provided endogenous factor selected from "expression methylation Dnase H3K27ac H3K4me3 PII H3K4me1 CTCF H3K36me3".
+example:
+python Prediction_main.py -T CBE -P /home/wull01 -B $PWD/test1.bed -O $PWD/test/CBE_custize_methylation -E methylation test_input
+
+Notice: Here Package "BE_Endo" in the director "/home/wull01"
 
 Input file detailed format 
 TCCAGGCCAGGCAGTCAAGGAAGAAGCCCTGGGCTCCCAG        chr14:24431547-24431567
