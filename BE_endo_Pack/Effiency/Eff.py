@@ -75,16 +75,16 @@ def pip_endo(mpath,seq_40s,bio,labels,editor):
     return out_eff
 
 
-def pip_Inte(mpath,seq_40s,labels,editor):
+def pip_seq(mpath,seq_40s,labels,editor):
     Seq_obj=Sequence_prepare(seq_40s)
     X=Seq_obj.one_hot_encoding()
-    bio_train_reshape=""
-    if editor=='CBE':
-         bio_train_reshape=transform_all(bio)
-    else:
-         bio_train_reshape=transform_single(bio)
+    #bio_train_reshape=""
+    #if editor=='CBE':
+    #     bio_train_reshape=transform_all(bio)
+    #else:
+    #     bio_train_reshape=transform_single(bio)
 
-    Model=Model_Application(mpath,[X,bio_train_reshape])
+    Model=Model_Application(mpath,X)
     Model.load_model()
     Model.predicting()
     out_eff=[]

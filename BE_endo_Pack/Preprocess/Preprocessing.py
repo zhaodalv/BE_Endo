@@ -115,7 +115,7 @@ class Endo_Prepare:
             
             factor_list.append(out_df)
         ordered_dict={k: v for k, v in sorted(factor_percentage.items(), key=lambda item: item[1],reverse=True)}
-        print("ordered factor is: ", *ordered_dict.keys())
+        #print("ordered factor is: ", *ordered_dict.keys())
         #else:
         #    for epi in ABE_order:
         #        out_df=self.epi_process(epi,self.intersection)
@@ -128,8 +128,8 @@ class Endo_Prepare:
         #for key,value in self.imputation.items():
         for key in Order:
             merge.loc[pd.isna(merge[key]),key]=0
-        print(merge.columns)
-        print("choose single_factor {} for effiency prediction".format(single_factor))
+        #print(merge.columns)
+        #print("choose single_factor {} for effiency prediction".format(single_factor))
         #all_factor=merge.copy()
         #else:
         #    merge=reduce(lambda  left,right: pd.merge(left,right,on=['line'],
