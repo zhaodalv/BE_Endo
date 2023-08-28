@@ -45,13 +45,21 @@ optional arguments:
                         Choose one of endogenous factor name:expression methylation Dnase H3K27ac H3K4me3 PII H3K4me1 CTCF H3K36me3'
 
 Main code "Prediction_main.py" offers two Prediction Mode:
-First: Default Prediction Mode. This Mode includes prediction using three models: Seq model, All factor model and best single factor model. The best single factor model is selected based on the endogenous factor percentages.
+First: Default Prediction Mode. This Mode includes prediction using models: BE_Seq and BE_Endo model.
 example:
-python Prediction_main.py -T ABE -P /home/wull01 -B $PWD/test1.bed -O $PWD/test/test1_ test_input
+python Prediction_main.py -T CBE -P /home/wull01 -B $PWD/test1.bed -O $PWD/test/test1_ test_input
+
+output:
+1) Predicted BE_Seq eff/proportion table
+2) Predicted BE_Endo eff/proportion table
+
 
 Second: Customizing Prediction Mode. This Mode includes prediction using user provided endogenous factor selected from "expression methylation Dnase H3K27ac H3K4me3 PII H3K4me1 CTCF H3K36me3".
 example:
 python Prediction_main.py -T CBE -P /home/wull01 -B $PWD/test1.bed -O $PWD/test/CBE_custize_methylation -E methylation test_input
+
+output:
+1) Predicted single factor BE_Endo eff/proportion table
 
 Notice: Here Package "BE_Endo" in the director "/home/wull01"
 
@@ -60,12 +68,6 @@ TCCAGGCCAGGCAGTCAAGGAAGAAGCCCTGGGCTCCCAG        chr14:24431547-24431567
 #input 40bp Composition
 TCCAGGCCAG GCAGTCAAGGAAGAAGCCCT GGG  CTCCCAG        
 |10bp up | |    protospacer   ||PAM| | 7bp |      
-
-
-output
-
-1) Predicted single factor eff/proportion table
-2) Predicted all factor eff/proportion table
 
 ####Error fix
 1)
