@@ -22,10 +22,10 @@ if __name__=='__main__':
         print("Prediction Failure!")
         exit (1)
     if args.Endogenous in ['expression','methylation','Dnase','H3K27ac','H3K4me3','PII','H3K4me1','CTCF','H3K36me3']:
-        print ("Customizing Prediction using {} model".format(args.Endogenous))
+        print ("Customizing BE_Endo model prediction using {} model".format(args.Endogenous))
         PIP_F.pip_customization(args.Input_file,args.Editor,args.BEDOUT,args.Package,args.Outprefix,args.Endogenous)
     else:
-        print ("Default Model Prediction: Seq model and Endo model")
+        print ("Default Model Prediction: BE_Seq model and BE_Endo model")
         PIP_F.pip_file(args.Input_file,args.Editor,args.BEDOUT,args.Package,args.Outprefix)
     
     
